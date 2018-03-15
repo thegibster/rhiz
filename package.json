@@ -1,0 +1,28 @@
+{
+  "name": "rhiz",
+  "version": "1.0.0",
+  "description": "business marketplace application",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlowkeen/rhiz.git"
+  },
+  "keywords": [
+    "react.js",
+    "node.js",
+    "rhiz"
+  ],
+  "author": "Donovan Lowkeen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dlowkeen/rhiz/issues"
+  },
+  "homepage": "https://github.com/dlowkeen/rhiz#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

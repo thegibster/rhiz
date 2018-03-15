@@ -1,5 +1,7 @@
 const express = require('express');
 const PORT = process.env.PORT || 4000;
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20');
 const app = express();
 
 const bodyParser = require("body-parser");
@@ -7,6 +9,8 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 require('./routes')(app);
+
+passport.use(new GoogleStrategy());
 
  // run this express heroku production
 if (process.env.NODE_ENV === 'production') {

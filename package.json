@@ -4,8 +4,9 @@
   "description": "business marketplace application",
   "main": "server.js",
   "scripts": {
-    "scripts": { "test": "jasmine" },
-    "start": "node server.js"
+    "scripts": "test",
+    "start": "node server.js",
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",

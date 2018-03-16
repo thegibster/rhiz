@@ -5,7 +5,7 @@ class App extends Component {
     return (
       <div>
         <h1>Rhiz App Working</h1>
-        <a href="/auth/facebook">Log in with Facebook</a>
+        <a href="/auth/google">Log in with Google</a>
       </div>
     );
   }

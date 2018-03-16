@@ -2,14 +2,12 @@ const express = require('express');
 const passport = require("passport");
 const router = express.Router();
 
-router.get('/facebook', function(req, res) {
-  res.send({ test: "working" });
-})
+// Google Authenication
+  router.get("/google",
+    passport.authenticate("google", {
+      scope: ["profile", "email"]
+    })
+  );
+  router.get("/google/callback", passport.authenticate("google"));
 
-router.get("/google", passport.authenticate(
-  "google", {
-    scope: ["profile", "email"]
-  })
-);
-
-module.export = router;
+module.exports = router;

@@ -1,35 +1,15 @@
 const express = require('express');
 const PORT = process.env.PORT || 4000;
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20');
+const passport = require("passport");
 const keys = require('./config/keys');
-const app = express();
-
 const bodyParser = require("body-parser");
+const app = express();
 
 app.use(bodyParser.json());
 
+require('./services/googlePassport');
+
 require('./routes')(app);
-
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: keys.googleClientID,
-      clientSecret: keys.googleClientSecret,
-      callbackURL: "/auth/google/callback"
-    },
-    (accessToken, refreshToken, profile, done) => {
-      console.log('Access Token', accessToken);
-      console.log('Refresh Token', refreshToken);
-      console.log('profile', profile);
-    }
-  )
-);
-
-app.get('/auth/google', passport.authenticate('google', {
-    scope: ['profile', 'email']
-  })
-);
 
  // run this express heroku production
 if (process.env.NODE_ENV === 'production') {

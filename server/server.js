@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 
 mongoose.connect(keys.mongodbURI);
-
+require('./models/User');
 require('./services/googlePassport');
 
 require('./routes')(app);

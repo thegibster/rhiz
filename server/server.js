@@ -3,9 +3,12 @@ const PORT = process.env.PORT || 4000;
 const passport = require("passport");
 const keys = require('./config/keys');
 const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
 const app = express();
 
 app.use(bodyParser.json());
+
+mongoose.connect(keys.mongodbURI);
 
 require('./services/googlePassport');
 

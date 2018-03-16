@@ -1,12 +1,23 @@
 const express = require('express');
 const PORT = process.env.PORT || 4000;
+const cookieSession = require('cookie-session');
 const passport = require("passport");
-const keys = require('./config/keys');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const keys = require('./config/keys');
 const app = express();
 
 app.use(bodyParser.json());
+
+// wire up cookies for login
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.connect(keys.mongodbURI);
 require('./models/User');

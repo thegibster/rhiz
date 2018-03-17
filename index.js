@@ -1,6 +1,11 @@
 /**
  * Entry Script
  */
+const express = require('express');
+const app = express();
+
+
+require("./server/server");
 
   // run this express heroku production
 if (process.env.NODE_ENV === 'production') {
@@ -15,4 +20,3 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-require("./server/server");

@@ -6,7 +6,7 @@
   "scripts": {
     "scripts": "test",
     "start": "node server.js",
-    "server": "nodemon server.js --prefix server",
+    "server": "nodemon server.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "jasmine",

@@ -3,7 +3,7 @@ const cookieSession = require('cookie-session');
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
-const keys = require('./server/config/keys');
+const keys = require('./config/keys');
 const PORT = process.env.PORT || 4000;
 const app = express();
 
@@ -20,10 +20,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose.connect(keys.mongodbURI);
-require('./server/models/User');
-require('./server/services/googlePassport');
+require('./models/User');
+require('./services/googlePassport');
 
-require('./server/routes')(app);
+require('./routes')(app);
 
 // run this express heroku production
 if (process.env.NODE_ENV === "production") {
@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === "production") {
   // express will serve up index.html file if it doesn't recognize route
   const path = require("path");
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "..", "client", "build", "index.html"));
   });
 }
 

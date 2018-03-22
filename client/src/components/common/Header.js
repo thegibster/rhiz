@@ -33,6 +33,12 @@ export default class Header extends Component {
             <Input icon="search" placeholder="Search..." />
           </Menu.Item>
           <Menu.Item
+            name="login"
+            active={activeItem === "login"}
+            onClick={this.handleItemClick}
+            href="/auth/linkedin"
+          />
+          <Menu.Item
             name="logout"
             active={activeItem === "logout"}
             onClick={this.handleItemClick}

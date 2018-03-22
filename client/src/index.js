@@ -8,7 +8,6 @@ import reducer from './reducers'
 import "semantic-ui-css/semantic.min.css";
 import './components/common/common.css';
 
-// left initial state blank for now
 const store = createStore(reducer, {}, applyMiddleware());
 
 ReactDOM.render(

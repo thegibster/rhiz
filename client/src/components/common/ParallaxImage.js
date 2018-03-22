@@ -10,7 +10,7 @@ const ParallaxImage = props => (
       strength={200}
     >
       <h1 style={{ textAlign: 'center' }}>{props.title}</h1>
-      <div style={{ height: "350px" }} />
+      <div style={{ height: "300px" }} />
     </Parallax>
   </div>
 );

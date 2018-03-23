@@ -27,3 +27,8 @@ a.email {
 a.email:hover {
   color: #3ebcb2;
 }
+
+.card-icons {
+  margin-top: 15px;
+  margin-bottom:15px
+}

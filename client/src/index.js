@@ -7,6 +7,8 @@ import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducers'
 import "semantic-ui-css/semantic.min.css";
 import './components/common/common.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const store = createStore(reducer, {}, applyMiddleware());
 

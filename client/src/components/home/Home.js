@@ -1,15 +1,19 @@
 import React, { Component } from "react";
+import { Container } from 'semantic-ui-react';
 import ParallaxImage from "../common/ParallaxImage";
 import img12 from "../../assets/images/img12.jpg";
-import Carousel from '../common/Carousel';
+import FeaturedCarousel from './FeaturedCarousel';
 
 class Home extends Component {
   render() {
     return (
       <div>
         <ParallaxImage bgImage={img12} title="Rhiz" alt="parallaximg" />
-        <Carousel />
-        <div style={{ height: "400px" }} />
+        <div style={{ height: "80px" }}/>
+        <Container>
+          <FeaturedCarousel />
+        </Container>
+        <div style={{ height: "200px" }} />
       </div>
     );
   }

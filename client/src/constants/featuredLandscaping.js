@@ -33,31 +33,9 @@ export default [
     website: "https://wwww.google.com"
   },
   {
-    name: "Blades of Glory Landscaping",
+    name: "Gardening",
     bio: "Sustainable Landscaping",
-    src: require("../assets/images/facebook.png"),
-    location: "Los Angeles, CA",
-    description: "Palapas, patio accouterments, style",
-    facebook: "Currently Attending",
-    instagram: "left",
-    pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
-  },
-  {
-    name: "Blades of Glory Landscaping",
-    bio: "Sustainable Landscaping",
-    src: require("../assets/images/facebook.png"),
-    location: "Los Angeles, CA",
-    description: "Palapas, patio accouterments, style",
-    facebook: "Currently Attending",
-    instagram: "left",
-    pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
-  },
-  {
-    name: "Blades of Glory Landscaping",
-    bio: "Sustainable Landscaping",
-    src: require("../assets/images/facebook.png"),
+    src: require("../assets/images/landscape4.jpeg"),
     location: "Los Angeles, CA",
     description: "Palapas, patio accouterments, style",
     facebook: "Currently Attending",

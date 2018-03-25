@@ -8,7 +8,7 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   },
   {
     name: "G3 - Green Gardens Group",
@@ -19,7 +19,7 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   },
   {
     name: "Garden of Eva",
@@ -30,7 +30,7 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   },
   {
     name: "Gardening",
@@ -41,6 +41,6 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   }
 ];

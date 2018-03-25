@@ -36,7 +36,7 @@ export default class Header extends Component {
             name="login"
             active={activeItem === "login"}
             onClick={this.handleItemClick}
-            href="/auth/linkedin"
+            href="/auth/google"
           />
           <Menu.Item
             name="logout"

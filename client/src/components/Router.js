@@ -8,7 +8,6 @@ import Home from './home/Home';
 
 class Router extends Component {
   componentDidMount() {
-    console.log(this.props);
     this.props.fetchUser();
   }
 

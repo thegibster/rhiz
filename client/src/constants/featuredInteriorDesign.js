@@ -8,7 +8,7 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   },
   {
     name: "EGB Proudction and Revision",
@@ -19,7 +19,7 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   },
   {
     name: "Elite Interiors",
@@ -30,7 +30,7 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   },
   {
     name: "Interior Design Defacto",
@@ -41,6 +41,6 @@ export default [
     facebook: "Currently Attending",
     instagram: "left",
     pricing: "Come enjoy an evening with Girls in Tech!",
-    website: "https://wwww.google.com"
+    website: "https://www.google.com"
   }
 ];

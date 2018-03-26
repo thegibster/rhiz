@@ -1,17 +1,40 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Input, Menu } from "semantic-ui-react";
 
-export default class Header extends Component {
+class Header extends Component {
   state = { activeItem: "home" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+
+  renderLogin() {
+    if (!this.props.auth) {
+      return (
+        <div>
+          <Menu.Item
+            name="login"
+            onClick={this.handleItemClick}
+            href="/auth/google"
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Menu.Item
+            name="logout"
+            onClick={this.handleItemClick}
+            href="/api/logout"
+          />
+        </div>
+      );
+    }
+  }
 
   render() {
     const { activeItem } = this.state;
 
     return (
-      
-
       <Menu secondary>
         <Menu.Item
           name="home"
@@ -32,20 +55,15 @@ export default class Header extends Component {
           <Menu.Item>
             <Input icon="search" placeholder="Search..." />
           </Menu.Item>
-          <Menu.Item
-            name="login"
-            active={activeItem === "login"}
-            onClick={this.handleItemClick}
-            href="/auth/google"
-          />
-          <Menu.Item
-            name="logout"
-            active={activeItem === "logout"}
-            onClick={this.handleItemClick}
-            href="/api/logout"
-          />
+          {this.renderLogin()}
         </Menu.Menu>
       </Menu>
     );
   }
 }
+
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Header);

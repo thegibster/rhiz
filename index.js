@@ -23,6 +23,9 @@ app.use(passport.session());
 
 require('./routes')(app);
 
+// Set up frontend file serving
+app.use('/', express.static('client/build'));
+
 //TODO(jcarter): I would add some error handling here.
 mongoose.connect(keys.mongodbURI);
 
@@ -33,8 +36,6 @@ require('./services/googlePassport');
 
 // Run this express heroku production.
 if (process.env.NODE_ENV === "production") {
-  // Set up frontend file serving
-  app.use('/', express.static('client/build'));
 
   // Import Production routes.
   app.use('/api', require('./routes/index'));

@@ -21,8 +21,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./routes')(app);
+
 // Set up frontend file serving
-app.use('/', express.static('client/build'));
+//app.use('/', express.static('client/build'));
 
 //TODO(jcarter): I would add some error handling here.
 mongoose.connect(keys.mongodbURI);
@@ -38,6 +40,8 @@ if (process.env.NODE_ENV === "production") {
   // Import Production routes.
   app.use('/api', require('./routes/index'));
   app.use('/auth', require('./routes/authRoutes'));
+} else {
+  console.log("Dev Environment");
 }
 //TODO(jcarter): Add else for env === dev
 

@@ -24,7 +24,7 @@ app.use(passport.session());
 require('./routes')(app);
 
 // Set up frontend file serving
-//app.use('/', express.static('client/build'));
+app.use('/', express.static('client/build'));
 
 //TODO(jcarter): I would add some error handling here.
 mongoose.connect(keys.mongodbURI);

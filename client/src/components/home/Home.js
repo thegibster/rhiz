@@ -9,7 +9,7 @@ import './home.css';
 class Home extends Component {
   render() {
     return <div>
-        <ParallaxImage bgImage={img12} title="Rhiz" alt="parallaximg" />
+        <ParallaxImage bgImage={img12} title="Rhiz Marketplace" alt="parallaximg" />
         <div style={{ height: "80px" }} />
         <Container>
           <h1 className="title">Featured Landscaping Listings</h1>

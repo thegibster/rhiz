@@ -24,7 +24,7 @@ class Header extends Component {
           <Menu.Item
             name="logout"
             onClick={this.handleItemClick}
-            href="/api/logout"
+            href="/auth/logout"
           />
         </div>
       );

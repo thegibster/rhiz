@@ -6,15 +6,7 @@ const passport = require('passport');
 //TODO(jcarter): I would set up root level items here and import other route docs.
 // That way you dont have like 100 routes in one file.
 module.exports = app => {
+  
   app.use('/auth', authRoutes);
-
-  app.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-  });
-
-  app.get('/current_user', (req, res) => {
-    res.send(req.user);
-  });
 
 }

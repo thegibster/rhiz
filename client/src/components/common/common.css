@@ -32,3 +32,9 @@ a.email:hover {
   margin-top: 15px;
   margin-bottom:15px
 }
+
+.rhiz-header-logo {
+  height: 38px;
+  width: 70px;
+  margin-bottom: -10px;
+}

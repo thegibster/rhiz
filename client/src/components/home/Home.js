@@ -4,13 +4,21 @@ import ParallaxImage from "../common/ParallaxImage";
 import landscape1 from "../../assets/images/landscape1.jpeg";
 import FeaturedCarousel from './FeaturedCarousel';
 import FeaturedCarousel2 from "./FeaturedCarousel2";
+import SearchBar from './SearchBar';
 import './home.css';
 
 class Home extends Component {
   render() {
     return <div>
-        <ParallaxImage bgImage={landscape1} height={{ height: "250px" }} title="Rhiz Marketplace" alt="parallaximg" />
-        <div style={{ height: "80px" }} />
+        <ParallaxImage 
+          bgImage={landscape1} 
+          height={{ height: "35px" }} 
+          title="Rhiz Marketplace" 
+          text="Let's get started! Simply choose your category, location, and urgency."
+          alt="parallaximg" 
+          search={<SearchBar />} 
+        />
+        <div style={{ height: "55px" }} />
         <Container>
           <h1 className="title">Featured Landscaping Listings</h1>
           <FeaturedCarousel />

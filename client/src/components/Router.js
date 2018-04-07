@@ -5,6 +5,7 @@ import * as actions from '../actions';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import Home from './home/Home';
+import Profile from './profile/Profile';
 
 class Router extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class Router extends Component {
         <div>
           <Header />
           <Route exact path="/" component={Home} />
+          <Route path="/profile" component={Profile} />
           <Footer />
         </div>
       </BrowserRouter>

@@ -5,10 +5,31 @@
 .price-card-container {
     margin-top: 25px;
     margin-bottom: 25px;
-    /* height: 600px; */
+    /* height: 680px; */
 }
 
 .price-cards-div {
     margin-top: 25px;
     margin-bottom: 25px;
+    text-align: center;
+    /* height: 680px; */
+}
+
+.price-card-title {
+    height: 100px;
+}
+
+.price-card-header {
+    background-color: black;
+    height: 45px;
+}
+
+.price-title {
+    font-size: 36px;
+    padding-top: 14px;
+}
+
+.price-text {
+    color: white;
+    padding-top: 8px;
 }

@@ -9,8 +9,8 @@ class Pricing extends Component {
 
   renderPriceCards() {
     return <Container className="price-cards-div">
-        <Grid>
-          <Grid.Column width={5}>
+        <Grid columns="equal">
+          <Grid.Column>
             <PriceCard title="Part-Time" header="Free!" description={<div className="price-card-descriptions">
                   <p>Business Facebook/InstagramLinkage</p>
                   <Divider />
@@ -20,7 +20,7 @@ class Pricing extends Component {
                   <Divider />
                 </div>} link="https://www.google.com" />
           </Grid.Column>
-          <Grid.Column width={5}>
+          <Grid.Column>
             <PriceCard title="Full-Time" header="$39.00/mo" description={<div className="price-card-descriptions">
                   <p>Business Facebook/InstagramLinkage</p>
                   <Divider />
@@ -36,7 +36,7 @@ class Pricing extends Component {
                   <Divider />
                 </div>} link="https://www.google.com" />
           </Grid.Column>
-          <Grid.Column width={5}>
+          <Grid.Column>
             <PriceCard title="Big-Time" header="$59.00/mo" description={<div className="price-card-descriptions">
                   <p>Business Facebook/InstagramLinkage</p>
                   <Divider />
@@ -74,7 +74,6 @@ class Pricing extends Component {
         />
         {this.renderPriceCards()}
       </div>
-
     );
   }
 }

@@ -12,13 +12,13 @@ class Home extends Component {
     return <div>
         <ParallaxImage 
           bgImage={landscape1} 
-          height={{ height: "50px" }} 
+          height={{ height: "35px" }} 
           title="Rhiz Marketplace" 
           text="Let's get started! Simply choose your category, location, and urgency."
           alt="parallaximg" 
           search={<SearchBar />} 
         />
-        <div style={{ height: "80px" }} />
+        <div style={{ height: "55px" }} />
         <Container>
           <h1 className="title">Featured Landscaping Listings</h1>
           <FeaturedCarousel />

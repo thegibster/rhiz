@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import { Button, Card, Image, Grid, Divider, Icon } from "semantic-ui-react";
-import landscape1 from '../../assets/images/landscape1.jpeg';
+import React from "react";
+import { Button, Card, Image, Grid, Icon } from "semantic-ui-react";
 
 const HorizontalCard = props => {
 return <Card fluid>

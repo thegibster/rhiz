@@ -10,7 +10,7 @@ jobs:
       - image: circleci/node:8.9.4
 
     working_directory: ~/repo
-
+    branch: master
     steps:
       - checkout
       - run: npm install

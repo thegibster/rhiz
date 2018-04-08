@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card, Icon, Divider, Button } from "semantic-ui-react";
+import { Container, Card, Button } from "semantic-ui-react";
 
 const PriceCard = props => {
   return <Container>

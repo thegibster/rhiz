@@ -5,6 +5,8 @@ import * as actions from '../actions';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import Home from './home/Home';
+import Profile from './profile/Profile';
+import Pricing from './pricing/Pricing';
 
 class Router extends Component {
   componentDidMount() {
@@ -17,6 +19,8 @@ class Router extends Component {
         <div>
           <Header />
           <Route exact path="/" component={Home} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/pricing" component={Pricing} />
           <Footer />
         </div>
       </BrowserRouter>

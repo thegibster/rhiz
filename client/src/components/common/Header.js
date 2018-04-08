@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Input, Menu } from "semantic-ui-react";
+import { Input, Menu, Image } from "semantic-ui-react";
+import rhizImg from '../../assets/images/rhiz.png';
 
 class Header extends Component {
   state = { activeItem: "home" };
@@ -32,33 +33,19 @@ class Header extends Component {
   }
 
   render() {
-    const { activeItem } = this.state;
-
-    return (
-      <Menu secondary>
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="messages"
-          active={activeItem === "messages"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="friends"
-          active={activeItem === "friends"}
-          onClick={this.handleItemClick}
-        />
+    return <Menu secondary>
+        <Menu.Item name="home" href="/">
+          <Image className="rhiz-header-logo" src={rhizImg} />
+        </Menu.Item>
+        <Menu.Item name="pricing" href="/pricing" />
+        <Menu.Item name="profile (Test)" href="/profile" />
         <Menu.Menu position="right">
           <Menu.Item>
             <Input icon="search" placeholder="Search..." />
           </Menu.Item>
           {this.renderLogin()}
         </Menu.Menu>
-      </Menu>
-    );
+      </Menu>;
   }
 }
 

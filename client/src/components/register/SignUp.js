@@ -5,18 +5,6 @@ import people from '../../assets/images/people.jpg';
 
 class SignUp extends Component {
   render() {
-    const items = [
-          {
-              header: 'Business',
-              description: 'Acquire New Customers, Display Your Work, Access Business Partnerships',
-              meta: 'ROI: 30%',
-          },
-          {
-              header: 'Consumer',
-              description: 'Bring to the table win-win survival strategies to ensure proactive domination.',
-              meta: 'ROI: 34%',
-          },
-        ]
     return (//   <Card.Group centered items={items} />
       <Card.Group centered>
         <Card>

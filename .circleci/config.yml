@@ -11,18 +11,6 @@ jobs:
       - run: NPM_CONFIG_PRODUCTION=false
       - run: npm install --prefix client
       - run: npm run build --prefix client
-  
-  feature:
-    docker:
-      - image: circleci/node:boron
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm test
-      - run: NPM_CONFIG_PRODUCTION=false
-      - run: npm install --prefix client
-      - run: npm run build --prefix client
 
   deploy:
     machine:
@@ -41,7 +29,7 @@ jobs:
 
       - run:
           command: |
-            git push heroku master:master
+            git push heroku master
             sleep 5  # sleep for 5 seconds to wait for dynos
             heroku restart
 
@@ -56,9 +44,3 @@ workflows:
           filters:
             branches:
               only: master
-  feature-branch:
-    jobs:
-      -features:
-        filters:
-          branches:
-            only: /jcarter*/

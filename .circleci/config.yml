@@ -1,19 +1,46 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/node:8.9.4
-
+      - image: circleci/node:boron
     working_directory: ~/repo
-
     steps:
       - checkout
       - run: npm install
       - run: npm test
+      - run: NPM_CONFIG_PRODUCTION=false
+      - run: npm install --prefix client
+      - run: npm run build --prefix client
 
+  deploy:
+    machine:
+        enabled: true
+    working_directory: ~/repo
+    environment:
+      HEROKU_APP: "whispering-savannah-73328"
+    steps:
+      - checkout
+      - add_ssh_keys:  # add key from CircleCI account based on fingerprint
+          fingerprints:
+            - "84:2c:60:40:f4:72:dd:52:4b:4e:ad:88:19:cb:cc:f6"
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
 
+      - run:
+          command: |
+            git push heroku master
+            sleep 5  # sleep for 5 seconds to wait for dynos
+            heroku restart
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

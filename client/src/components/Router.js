@@ -7,6 +7,7 @@ import Footer from './common/Footer';
 import Home from './home/Home';
 import Profile from './profile/Profile';
 import Pricing from './pricing/Pricing';
+import RegisterForm  from './register/RegisterForm';
 
 class Router extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class Router extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/profile" component={Profile} />
           <Route path="/pricing" component={Pricing} />
+          <Route path="/register" component={RegisterForm} />
           <Footer />
         </div>
       </BrowserRouter>

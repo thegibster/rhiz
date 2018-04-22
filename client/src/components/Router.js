@@ -34,4 +34,4 @@ const mapStateToProps = state => {
   return { auth: state.auth }
 }
 
-export default connect(null, actions)(Router);
+export default connect(mapStateToProps, actions)(Router);

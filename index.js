@@ -21,8 +21,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Set up frontend file serving
-app.use('/', express.static('client/build'));
 
 //TODO(jcarter): I would add some error handling here.
 mongoose.connect(keys.mongodbURI);
@@ -32,22 +30,27 @@ require('./models/User');
 
 require('./services/googlePassport');
 
+require('./routes')(app);
+
 // Run this express heroku production.
 if (process.env.NODE_ENV === "production") {
+  // Set up frontend file serving
+  app.use('/', express.static('client/build'));
   
-  // Import Production routes.
-  app.use('/auth', require('./routes/authRoutes'));
+  // // Import Production routes.
+  // app.use('/auth', require('./routes/authRoutes'));
+  
+  // express will serve up index.html file if it doesn't recognize route
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 } else {
   //TODO(jcarter): Add else for env === dev
   console.log("Dev Environment");
   require('./routes')(app);
 }
 
-// express will serve up index.html file if it doesn't recognize route
-const path = require("path");
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
 
 app.listen(PORT, function() {
     console.log('app listening on Port ' + PORT);

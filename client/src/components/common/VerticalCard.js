@@ -32,7 +32,7 @@ const VerticalCard = props => (
           <Icon name="dollar" />
         </div>
       </div>
-      <div class="ui two buttons">
+      <div className="ui two buttons">
         <Button href={props.website} positive>
           View
         </Button>

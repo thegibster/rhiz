@@ -30,7 +30,7 @@ class FeaturedCarousel2 extends React.Component {
   renderVerticalCards() {
     const verticalCards = featuredInteriorDesign.map(featuredInteriorDesign => {
       return (
-        <div>
+        <div key={featuredInteriorDesign.name}>
           <VerticalCard
             name={featuredInteriorDesign.name}
             bio={featuredInteriorDesign.bio}

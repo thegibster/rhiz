@@ -17,6 +17,8 @@
 .env.production.local
 dev.js
 .env
+heroku
+heroku.pub
 
 npm-debug.log*
 yarn-debug.log*

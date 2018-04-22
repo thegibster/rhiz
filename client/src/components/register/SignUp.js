@@ -5,8 +5,7 @@ import people from '../../assets/images/people.jpg';
 
 class SignUp extends Component {
   render() {
-    return (//   <Card.Group centered items={items} />
-      <Card.Group centered>
+    return <Card.Group centered style={{ paddingBottom: 50 }}>
         <Card>
           <Image src={construction} />
           <Card.Content>
@@ -18,10 +17,12 @@ class SignUp extends Component {
                 <li>Access Business Partnerships</li>
               </ul>
             </Card.Description>
-            <Button positive fluid>Sign Up</Button>
+            <Button positive fluid size="large">
+              Business Sign Up
+            </Button>
           </Card.Content>
         </Card>
-        <div>or</div>
+        <div style={{ padding: 30 }} />
         <Card>
           <Image src={people} />
           <Card.Content>
@@ -33,11 +34,12 @@ class SignUp extends Component {
                 <li>Transparent Buying Process</li>
               </ul>
             </Card.Description>
-            <Button positive fluid>Sign Up</Button>
+            <Button positive fluid size="large" href="consumer">
+              Consumer Sign Up
+            </Button>
           </Card.Content>
         </Card>
-      </Card.Group>
-    );
+      </Card.Group>;
   }
 }
 

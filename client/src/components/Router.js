@@ -8,6 +8,7 @@ import Home from './home/Home';
 import Profile from './profile/Profile';
 import Pricing from './pricing/Pricing';
 import RegisterForm  from './register/RegisterForm';
+import ConsumerSignUp from './register/ConsumerSignUp';
 
 class Router extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class Router extends Component {
           <Route path="/profile" component={Profile} />
           <Route path="/pricing" component={Pricing} />
           <Route path="/register" component={RegisterForm} />
+          <Route path="/consumer" component={ConsumerSignUp} />
           <Footer />
         </div>
       </BrowserRouter>

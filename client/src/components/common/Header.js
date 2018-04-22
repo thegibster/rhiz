@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Input, Menu, Image } from "semantic-ui-react";
 import rhizImg from '../../assets/images/rhiz.png';
-import Login from '../login/Login';
 
 class Header extends Component {
   state = { activeItem: "home" };
@@ -17,7 +16,7 @@ class Header extends Component {
           <Menu.Item
             name="login"
             onClick={this.handleItemClick}
-            href="/auth/google"
+            href="register"
           />
         </div>
       );
@@ -46,9 +45,6 @@ class Header extends Component {
             <Input icon="search" placeholder="Search..." />
           </Menu.Item>
           {this.renderLogin()}
-          <Menu.Item>
-            <Login />
-          </Menu.Item>
         </Menu.Menu>
       </Menu>;
   }

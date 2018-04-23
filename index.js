@@ -31,6 +31,7 @@ mongoose.connect(keys.mongodbURI);
 require('./models/User');
 
 require('./services/googlePassport');
+require('./services/linkedinPassport');
 
 // Run this express heroku production.
 if (process.env.NODE_ENV === "production") {

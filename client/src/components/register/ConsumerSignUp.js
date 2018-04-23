@@ -17,7 +17,7 @@ class ConsumerSignUp extends Component {
             <Button style={style.buttonStyle} fluid color="google plus" href="/auth/google">
               <Icon name="google plus" /> Sign Up With Google
             </Button>
-            <Button style={style.buttonStyle} fluid color="linkedin">
+            <Button style={style.buttonStyle} fluid color="linkedin" href="/auth/linkedin">
               <Icon name="linkedin" /> Sign Up With LinkedIn
             </Button>
           </Card.Description>

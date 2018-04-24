@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react';
+import SignUpForm from './SignUpForm';
 
 class ConsumerSignUp extends Component {
   render() {
@@ -8,6 +9,9 @@ class ConsumerSignUp extends Component {
           <Card.Header>
             <h1>Create Your Account</h1>
           </Card.Header>
+        </Card.Content>
+        <Card.Content>
+          <SignUpForm />
         </Card.Content>
         <Card.Content>
           <Card.Description>
@@ -29,7 +33,8 @@ class ConsumerSignUp extends Component {
 const style = {
     cardStyle: {
         marginTop: 25,
-        marginBottom: 50
+        marginBottom: 50,
+        padding: 20
     },
     buttonStyle: {
         marginTop: 10,

@@ -22,6 +22,14 @@ router.get("/linkedin/callback", [passport.authenticate("linkedin"), (req, res) 
   res.redirect("/profile")
 }]);
 
+// Local Authentication
+router.post("/login",
+  passport.authenticate("local", { failureRedirect: "/login" }),
+  function(req, res) {
+    res.redirect("/");
+  }
+);
+
 // Logout 
 router.get("/logout", (req, res) => {
   req.logout();

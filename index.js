@@ -32,6 +32,7 @@ require('./models/User');
 
 require('./services/googlePassport');
 require('./services/linkedinPassport');
+require('./services/facebookPassport');
 
 // Run this express heroku production.
 if (process.env.NODE_ENV === "production") {

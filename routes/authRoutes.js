@@ -22,9 +22,19 @@ router.get("/linkedin/callback", [passport.authenticate("linkedin"), (req, res) 
   res.redirect("/profile")
 }]);
 
+// Facebook Authenication.
+router.get("/facebook", passport.authenticate("facebook"));
+
+router.get("/facebook/callback", passport.authenticate("facebook", { failureRedirect: "/consumer" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/");
+  }
+);
+
 // Local Authentication
 router.post("/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
+  passport.authenticate("local", { failureRedirect: "/consumer" }),
   function(req, res) {
     res.redirect("/");
   }

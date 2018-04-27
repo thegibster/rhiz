@@ -6,7 +6,7 @@ class ConsumerSignUp extends Component {
   render() {
     return <Card centered style={ style.cardStyle }>
         <Card.Content>
-          <Card.Header>
+          <Card.Header style={{ textAlign: 'center' }}>
             <h1>Create Account</h1>
           </Card.Header>
         </Card.Content>
@@ -15,7 +15,7 @@ class ConsumerSignUp extends Component {
         </Card.Content>
         <Card.Content>
           <Card.Description>
-            <Button style={style.buttonStyle} fluid color="facebook">
+            <Button style={style.buttonStyle} fluid color="facebook" href="/auth/facebook">
               <Icon name="facebook" /> Sign Up With Facebook
             </Button>
             <Button style={style.buttonStyle} fluid color="google plus" href="/auth/google">

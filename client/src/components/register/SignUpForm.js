@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { Button } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import SignUpFormFields from './SignUpFormFields';
+
+const renderInput = ({ input, label, type, placeholder, meta: { touched, error, warning } }) => {
+  return (
+    <div style={{ paddingTop: 5, paddingBottom: 5 }}>
+      <Input fluid {...input} placeholder={placeholder}/>
+    </div>
+  );
+}
+
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -19,7 +28,7 @@ class SignUpForm extends Component {
       return (
         <Field key={SignUp.name}
           name={SignUp.name}
-          component={SignUp.component}
+          component={renderInput}
           type={SignUp.type}
           placeholder={SignUp.placeholder}
         />
@@ -29,16 +38,15 @@ class SignUpForm extends Component {
   }
 
   submit(values) { 
-    console.log("values", values);
     const { fullName, email, password } = values;
     const loginInfo = { fullName, email, password }
     this.setState({
       loginInfo: loginInfo
     });
-    console.log("this.state", this.state);
   }
 
   render() {
+    console.log('this.state', this.state);
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
     <form onSubmit={handleSubmit(this.submit)}>

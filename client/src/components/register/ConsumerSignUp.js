@@ -7,7 +7,7 @@ class ConsumerSignUp extends Component {
     return <Card centered style={ style.cardStyle }>
         <Card.Content>
           <Card.Header>
-            <h1>Create Your Account</h1>
+            <h1>Create Account</h1>
           </Card.Header>
         </Card.Content>
         <Card.Content>

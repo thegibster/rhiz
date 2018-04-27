@@ -9,7 +9,6 @@ class Header extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   renderLogin() {
-    console.log("this.props", this.props);
     if (!this.props.auth) {
       return (
         <div>

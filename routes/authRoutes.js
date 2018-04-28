@@ -36,20 +36,23 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
 
 // Local Authentication
 router.post("/create", (req, res, done) => { 
-  console.log("IN THE RIGHT SPOT");
   const { fullName, email, password } = req.body;
-  console.log(fullName, email, password);
-  // try {
-  //   new User({
-  //     fullName: fullName,
-  //     email: email,
-  //     password: password
-  //   })
-  //     .save()
-  //     .then(user => done(null, user));
-  // } catch (error) {
-  //   res.status(500).send(error);
-  // }
+  User.findOne({ fullName: fullName }).then(existingUser => {
+    if (existingUser) {
+      // already have a record of this user
+      done(null, existingUser);
+    } else {
+      // no user record, so create record
+      new User({
+        fullName: fullName,
+        email: email,
+        password: password
+      })
+        .save()
+        .then(user => done(null, user));
+    }
+  });
+
 });
 
 router.post("/login", () => { console.log("hit the right spot!")}

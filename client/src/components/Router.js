@@ -8,7 +8,7 @@ import Home from './home/Home';
 import Profile from './profile/Profile';
 import Pricing from './pricing/Pricing';
 import RegisterForm  from './register/RegisterForm';
-import ConsumerSignUp from './register/ConsumerSignUp';
+import ConsumerSignUp from './register/consumerSignUp/ConsumerSignUp';
 
 class Router extends Component {
   componentDidMount() {

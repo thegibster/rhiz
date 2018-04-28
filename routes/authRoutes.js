@@ -33,11 +33,11 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
 );
 
 // Local Authentication
-router.post("/login",
-  passport.authenticate("local", { failureRedirect: "/consumer" }),
-  function(req, res) {
-    res.redirect("/");
-  }
+router.post("/login", () => { console.log("hit the right spot!")}
+  // passport.authenticate("local", { failureRedirect: "/consumer" }),
+  // function(req, res) {
+  //   res.redirect("/");
+  // }
 );
 
 // Logout 

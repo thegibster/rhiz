@@ -43,7 +43,7 @@ class SignUpForm extends Component {
     this.setState({
       loginInfo: loginInfo
     });
-    this.props.loginUser(loginInfo);
+    this.props.createLogin(loginInfo);
   }
 
   render() {

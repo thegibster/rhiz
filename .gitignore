@@ -19,6 +19,8 @@ dev.js
 .env
 heroku
 heroku.pub
+localhost.crt
+localhost.key
 
 npm-debug.log*
 yarn-debug.log*

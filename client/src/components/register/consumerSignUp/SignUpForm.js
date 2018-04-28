@@ -47,6 +47,7 @@ class SignUpForm extends Component {
   }
 
   render() {
+    console.log("this.props", this.props);
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
     <form onSubmit={handleSubmit(this.submit)}>
@@ -68,7 +69,8 @@ class SignUpForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    form: state.form
 });
 
 SignUpForm = reduxForm({

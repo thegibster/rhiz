@@ -7,8 +7,6 @@ export const fetchUser = () => async dispatch => {
 };
 
 export const createLogin = (loginInfo) => async dispatch => {
-  console.log("LoginInfo", loginInfo);
   const res = await axios.post("/auth/create", loginInfo);
-  console.log("res", res.data);
   dispatch({ type: CREATE_LOGIN, payload: res.data });
 }

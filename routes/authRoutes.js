@@ -3,6 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = mongoose.model("users")
+const bcrypt =require('bcrypt');
 
 // Google Authenication.
 router.get("/google",
@@ -37,6 +38,13 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
 // Local Authentication
 router.post("/create", (req, res, done) => { 
   const { fullName, email, password } = req.body;
+  // password encryption
+  const saltRounds = 10;
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(password, salt, function(err, hash) {
+      console.log("hashed password", hash);
+    });
+  });
   User.findOne({ fullName: fullName }).then(existingUser => {
     if (existingUser) {
       // already have a record of this user
@@ -46,7 +54,7 @@ router.post("/create", (req, res, done) => {
       new User({
         fullName: fullName,
         email: email,
-        password: password
+        password: hash
       })
         .save()
         .then(user => done(null, user));

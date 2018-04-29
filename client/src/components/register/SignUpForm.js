@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { Button, Input } from 'semantic-ui-react';
-import * as actions from '../../../actions';
+import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import SignUpFormFields from './SignUpFormFields';
 
@@ -47,7 +47,6 @@ class SignUpForm extends Component {
   }
 
   render() {
-    console.log("this.props", this.props);
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
     <form onSubmit={handleSubmit(this.submit)}>
@@ -74,7 +73,7 @@ const mapStateToProps = state => ({
 });
 
 SignUpForm = reduxForm({
-  form: "login" // a unique identifier for this form
+  form: "signUp" // a unique identifier for this form
 })(SignUpForm);
 
 export default connect(mapStateToProps, actions)(SignUpForm);

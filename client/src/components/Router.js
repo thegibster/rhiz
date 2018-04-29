@@ -9,6 +9,7 @@ import Profile from './profile/Profile';
 import Pricing from './pricing/Pricing';
 import RegisterForm  from './register/RegisterForm';
 import ConsumerSignUp from './register/consumerSignUp/ConsumerSignUp';
+import Login from './register/login/Login';
 
 class Router extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ class Router extends Component {
           <Route path="/pricing" component={Pricing} />
           <Route path="/register" component={RegisterForm} />
           <Route path="/consumer" component={ConsumerSignUp} />
+          <Route path="/login" component={Login} />
           <Footer />
         </div>
       </BrowserRouter>

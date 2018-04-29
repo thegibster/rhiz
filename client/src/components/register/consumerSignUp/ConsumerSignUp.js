@@ -4,7 +4,7 @@ import RegisterCard from '../RegisterCard.js';
 class ConsumerSignUp extends Component {
   render() {
     return (
-      <RegisterCard />
+      <RegisterCard header="Create Account"/>
     );
   }
 }

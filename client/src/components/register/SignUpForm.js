@@ -73,7 +73,7 @@ const mapStateToProps = state => ({
 });
 
 SignUpForm = reduxForm({
-  form: "login" // a unique identifier for this form
+  form: "signUp" // a unique identifier for this form
 })(SignUpForm);
 
 export default connect(mapStateToProps, actions)(SignUpForm);

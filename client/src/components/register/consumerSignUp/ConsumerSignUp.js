@@ -3,11 +3,6 @@ import RegisterCard from '../RegisterCard.js';
 
 class ConsumerSignUp extends Component {
   render() {
-    const additionalText = () => {
-        <div>
-            
-        </div>
-    }
     return (
       <RegisterCard 
         header="Create Account"

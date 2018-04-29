@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { Button, Input } from 'semantic-ui-react';
-import * as actions from '../../../actions';
+import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import SignUpFormFields from './SignUpFormFields';
 

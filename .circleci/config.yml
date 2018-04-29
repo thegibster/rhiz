@@ -20,16 +20,11 @@ jobs:
       HEROKU_APP: "whispering-savannah-73328"
     steps:
       - checkout
-      - add_ssh_keys:  # add key from CircleCI account based on fingerprint
-          fingerprints:
-            - "84:2c:60:40:f4:72:dd:52:4b:4e:ad:88:19:cb:cc:f6"
       - run:
-          name: Setup Heroku
-          command: bash .circleci/setup-heroku.sh
-
-      - run:
-          command: |
-            git push heroku master
+          name: Deploy Master to Heroku
+          command: |  # this command is framework-dependent and may vary
+            heroku git:remote -a HEROKU_APP_NAME
+            git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:refs/heads/master
             sleep 5  # sleep for 5 seconds to wait for dynos
             heroku restart
 

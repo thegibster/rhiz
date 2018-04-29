@@ -39,6 +39,3 @@ workflows:
           filters:
             branches:
               only: master
-
-
-              e59707b0-947d-4c92-aa45-2833e8c6e0de

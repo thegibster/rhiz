@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react';
 import SignUpForm from './SignUpForm';
 
@@ -25,6 +25,7 @@ const RegisterCard = (props) => {
           </Button>
         </Card.Description>
       </Card.Content>
+      {props.additionalText}
     </Card>;
 }
 

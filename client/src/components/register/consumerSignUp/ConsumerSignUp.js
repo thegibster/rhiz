@@ -16,6 +16,7 @@ class ConsumerSignUp extends Component {
             <p>Already have an account? <a href="/login">Login</a></p>
           </div>
         }
+        hint="Sign Up"
       />
     );
   }

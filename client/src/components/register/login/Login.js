@@ -8,6 +8,11 @@ class Login extends Component {
       <RegisterCard 
         header="Login to Your Account" 
         hint="Login"
+        additionalText={
+          <div style={{ textAlign: 'center' }}>
+            <p>No account? <a href="/consumer">Sign Up Here</a></p>
+          </div>
+        }
         form={<LoginForm/>}
       />
     );

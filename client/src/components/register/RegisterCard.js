@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react';
-import SignUpForm from './SignUpForm';
 
 const RegisterCard = (props) => {
   return <Card centered style={style.cardStyle}>
@@ -10,7 +9,7 @@ const RegisterCard = (props) => {
         </Card.Header>
       </Card.Content>
       <Card.Content>
-        <SignUpForm />
+        {props.form}
       </Card.Content>
       <Card.Content>
         <Card.Description>

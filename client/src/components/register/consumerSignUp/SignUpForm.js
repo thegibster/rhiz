@@ -1,18 +1,10 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { Button, Input } from 'semantic-ui-react';
-import * as actions from '../../actions';
+import { Button } from 'semantic-ui-react';
+import * as actions from '../../../actions';
 import { connect } from 'react-redux';
-import SignUpFormFields from './SignUpFormFields';
-
-const renderInput = ({ input, label, type, placeholder, meta: { touched, error, warning } }) => {
-  return (
-    <div style={{ paddingTop: 5, paddingBottom: 5 }}>
-      <Input fluid {...input} placeholder={placeholder}/>
-    </div>
-  );
-}
-
+import SignUpFormFields from '../SignUpFormFields';
+import { renderInput } from '../../utils/formValidations';
 
 class SignUpForm extends Component {
   constructor(props) {

@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const googleAPI = require('./googleAPI');
+const linkedinAPI = require('./linkedinAPI');
 
 module.exports = {
   serviceHandler: async (accessToken, refreshToken, profile, done ) => {
     let authUser = null;
+    // determines whether user is logging in with linkedin or google
     switch (profile.provider) {
         case 'google': 
         authUser = googleAPI.googleUser(profile);
+        case 'linkedin':
+        authUser = linkedinAPI.linkedInUser(profile);
         console.log("authUser", authUser);
         break;
     }
@@ -37,21 +41,5 @@ module.exports = {
     // Create a new user record is user does not exist
 	const user = await User(authUser.userModel).save();
 	done(null, user);
-
-    // console.log("Profile", profile);
-    // User.findOne({ googleId: profile.id }).then(existingUser => {
-    //     if (existingUser) {
-    //     // already have a record of this user
-    //     done(null, existingUser);
-    //     } else {
-    //     // no user record, so create record
-    //     new User({
-    //         googleId: profile.id,
-    //         displayName: profile.displayName
-    //     })
-    //         .save()
-    //         .then(user => done(null, user));
-    //     }
-    // });
   }
 }

@@ -3,7 +3,6 @@ import { connect  } from 'react-redux';
 import { Container } from 'semantic-ui-react';
 import ParallaxImage from "../common/ParallaxImage";
 import landscape1 from "../../assets/images/landscape1.jpeg";
-import donovan from '../../assets/images/donovan.jpg';
 import HorizontalCard from '../common/HorizontalCard';
 import featuredLandscaping from '../../constants/featuredLandscaping.js';
 
@@ -26,18 +25,28 @@ class Profile extends Component {
     })
     return cards;
   }
+
+  renderParallax() {
+    if (this.props.auth) {
+      return (
+        <ParallaxImage 
+          src={this.props.auth.bigPhotoURL}
+          size='small'
+          height={{ height: "15px" }}
+          bgImage={landscape1} 
+          title={this.props.auth.displayName}
+          text="lorem ipsum Ea consequat sunt ut sunt esse veniam qui incididunt laborum exercitation. Incididunt ipsum sint do esse anim reprehenderit sit ipsum sint minim incididunt laborum commodo sint. Nulla elit occaecat est Lorem voluptate proident quis est elit nulla nisi exercitation. Aliqua nisi sunt reprehenderit nulla consequat ad voluptate mollit esse et in aliqua dolor." 
+          alt="parallaximg"
+        />
+      )
+    }
+  }
+
   render() {
     console.log("this.props", this.props);
     return (
       <div>
-        <ParallaxImage 
-          src={donovan}
-          size='small'
-          height={{ height: "15px" }}
-          bgImage={landscape1} 
-          title="Donovan Lowkeen" 
-          text="lorem ipsum Ea consequat sunt ut sunt esse veniam qui incididunt laborum exercitation. Incididunt ipsum sint do esse anim reprehenderit sit ipsum sint minim incididunt laborum commodo sint. Nulla elit occaecat est Lorem voluptate proident quis est elit nulla nisi exercitation. Aliqua nisi sunt reprehenderit nulla consequat ad voluptate mollit esse et in aliqua dolor." 
-          alt="parallaximg" />
+        {this.renderParallax()}
         <Container>
           {this.renderCards()}
         </Container>

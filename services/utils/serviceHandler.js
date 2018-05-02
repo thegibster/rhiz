@@ -8,17 +8,16 @@ module.exports = {
     let authUser = null;
     // determines whether user is logging in with linkedin or google
     switch (profile.provider) {
-        case 'google': 
+      case 'google': 
         authUser = googleAPI.googleUser(profile);
+        break;
         case 'linkedin':
         authUser = linkedinAPI.linkedInUser(profile);
-        console.log("authUser", authUser);
         break;
     }
 
-    // Search for user by authentication ID
-    let existingUser = await User.findOne({ [authUser.identifier]: profile.id });
-    console.log("existingUser", existingUser);
+  // Search for user by authentication ID
+  let existingUser = await User.findOne({ [authUser.identifier]: profile.id });
 	if (existingUser) {
 		return done(null, existingUser);
 	}

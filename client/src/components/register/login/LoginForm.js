@@ -40,7 +40,7 @@ class LoginForm extends Component {
     this.setState({
       loginInfo: loginInfo
     });
-    this.props.createLogin(loginInfo);
+    this.props.loginUser(loginInfo);
   }
 
   render() {
@@ -72,7 +72,7 @@ const mapStateToProps = state => ({
 });
 
 LoginForm = reduxForm({
-  form: "signUp" // a unique identifier for this form
+  form: "login" // a unique identifier for this form
 })(LoginForm);
 
 export default connect(mapStateToProps, actions)(LoginForm);

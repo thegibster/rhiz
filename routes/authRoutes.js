@@ -63,11 +63,11 @@ router.post("/create", (req, res, done) => {
 
 });
 
-router.post("/login", () => { console.log("hit the right spot!")}
-  // passport.authenticate("local", { failureRedirect: "/consumer" }),
-  // function(req, res) {
-  //   res.redirect("/");
-  // }
+router.post("/login", 
+  passport.authenticate("local", { failureRedirect: "/consumer" }),
+  function(req, res) {
+    res.redirect("/");
+  }
 );
 
 // Logout 

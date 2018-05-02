@@ -10,7 +10,7 @@ class Profile extends Component {
   renderCards() {
     let cards = featuredLandscaping.map(featuredLandscaping => {
       return (
-        <HorizontalCard 
+        <HorizontalCard key={featuredLandscaping.name}
             name={featuredLandscaping.name}
             bio={featuredLandscaping.bio}
             src={featuredLandscaping.src}

@@ -16,7 +16,7 @@ const PriceCard = props => {
           </Card.Description>
           <Button 
             fluid basic color="green"
-            href='/register'
+            href='/consumer'
           >
             Subscribe
           </Button>

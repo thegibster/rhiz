@@ -17,7 +17,7 @@ class SignUp extends Component {
                 <li>Access Business Partnerships</li>
               </ul>
             </Card.Description>
-            <Button positive fluid size="large">
+            <Button positive fluid size="large" href="/pricing">
               Business Sign Up
             </Button>
           </Card.Content>

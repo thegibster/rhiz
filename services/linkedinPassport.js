@@ -3,6 +3,7 @@ const LinkedInStrategy = require("passport-linkedin-oauth2").Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 const User = mongoose.model("users");
+const linkedinService = require("./utils/serviceHandler");
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -23,21 +24,5 @@ passport.use(
       scope: ["r_basicprofile", "r_emailaddress"],
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
-      console.log("Profile", profile);
-      User.findOne({ linkedInId: profile.id })
-        .then((existingUser)=> {
-          if (existingUser) {
-            // already have a record of this user
-            done(null, existingUser)
-          } else {
-            // no user record, so create record
-            new User({
-              linkedInId: profile.id,
-              displayName: profile.displayName
-            }).save()
-            .then(user => done(null, user));
-          }
-        })
-    }
+    linkedinService.serviceHandler
 ));

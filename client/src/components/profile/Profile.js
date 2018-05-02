@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect  } from 'react-redux';
 import { Container } from 'semantic-ui-react';
 import ParallaxImage from "../common/ParallaxImage";
 import landscape1 from "../../assets/images/landscape1.jpeg";
@@ -26,6 +27,7 @@ class Profile extends Component {
     return cards;
   }
   render() {
+    console.log("this.props", this.props);
     return (
       <div>
         <ParallaxImage 
@@ -44,4 +46,8 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Profile);

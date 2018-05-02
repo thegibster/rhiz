@@ -24,7 +24,6 @@ passport.use(
       callbackURL: "/auth/google/callback",
       proxy: true
     },
-      // input servicehandler here
     googleService.serviceHandler
   )
 );

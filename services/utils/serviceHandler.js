@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
-const googleUser = require('./googleUser');
+const googleAPI = require('./googleAPI');
 
 module.exports = {
-  serviceHandler: async (
-    accessToken,
-    refreshToken,
-    profile,
-    done
-    ) => {
+  serviceHandler: async (accessToken, refreshToken, profile, done ) => {
+    let authUser = null;
+    switch (profile.provider) {
+        case 'google': 
+        authUser = googleAPI.googleUser(profile);
+        console.log("authUser", authUser);
+        break;
+    }
     console.log("Profile", profile);
     User.findOne({ googleId: profile.id }).then(existingUser => {
         if (existingUser) {

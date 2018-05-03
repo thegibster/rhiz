@@ -36,13 +36,14 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
 );
 
 // Local Authentication
-router.post("/create", (req, res, done) => { 
+router.post("/login", (req, res, done) => { 
   const { fullName, email, password } = req.body;
   // password encryption
   const saltRounds = 10;
+  let hashedPassword = '';
   bcrypt.genSalt(saltRounds, function(err, salt) {
     bcrypt.hash(password, salt, function(err, hash) {
-      console.log("hashed password", hash);
+      hashedPassword = hash;
     });
   });
   User.findOne({ fullName: fullName }).then(existingUser => {
@@ -54,13 +55,13 @@ router.post("/create", (req, res, done) => {
       new User({
         fullName: fullName,
         email: email,
-        password: hash
+        password: hashedPassword
       })
         .save()
         .then(user => done(null, user));
     }
   });
-
+  res.redirect("/");
 });
 
 router.post("/login", 

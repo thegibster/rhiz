@@ -3,7 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = mongoose.model("users")
-const bcrypt =require('bcrypt');
+const bcrypt = require("../services/bcrypt");
 
 // Google Authenication.
 router.get("/google",
@@ -36,31 +36,30 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
 );
 
 // Local Authentication
-router.post("/create", (req, res, done) => { 
+router.post("/create", async (req, res, done) => { 
   const { fullName, email, password } = req.body;
   // password encryption
-  const saltRounds = 10;
-  bcrypt.genSalt(saltRounds, function(err, salt) {
-    bcrypt.hash(password, salt, function(err, hash) {
-      console.log("hashed password", hash);
+  const hashedPassword = await bcrypt.encrypt(password);
+  console.log("hashedPassword", hashedPassword);
+  const existingUser = await User.findOne({ fullName: fullName });
+  console.log("existingUser", existingUser);
+  console.log(req.body);
+  if (existingUser) {
+    // already have a record of this user
+    console.log("user already exists");
+    done(null, existingUser);
+  } else {
+    console.log("No User matches")
+    let newUser = new User({
+      fullName: fullName,
+      email: email,
+      password: hashedPassword
     });
-  });
-  User.findOne({ fullName: fullName }).then(existingUser => {
-    if (existingUser) {
-      // already have a record of this user
-      done(null, existingUser);
-    } else {
-      // no user record, so create record
-      new User({
-        fullName: fullName,
-        email: email,
-        password: hash
-      })
-        .save()
-        .then(user => done(null, user));
-    }
-  });
-
+    newUser.save(function(err) {
+      if (err) throw err;
+      else console.log("new user saved successfully");
+    })
+  }
 });
 
 router.post("/login", 

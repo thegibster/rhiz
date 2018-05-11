@@ -39,7 +39,6 @@ class Header extends Component {
           <Image className="rhiz-header-logo" src={rhizImg} />
         </Menu.Item>
         <Menu.Item name="pricing" href="/pricing" />
-        <Menu.Item name="profile (Test)" href="/profile" />
         <Menu.Menu position="right">
           <Menu.Item>
             <Input icon="search" placeholder="Search..." />

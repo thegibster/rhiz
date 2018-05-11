@@ -35,21 +35,18 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
   }
 );
 
-// Local Authentication
 router.post("/create", async (req, res, done) => { 
   const { fullName, email, password } = req.body;
   // password encryption
   const hashedPassword = await bcrypt.encrypt(password);
-  console.log("hashedPassword", hashedPassword);
+  // search for existingUser
   const existingUser = await User.findOne({ fullName: fullName });
-  console.log("existingUser", existingUser);
-  console.log(req.body);
   if (existingUser) {
     // already have a record of this user
     console.log("user already exists");
     done(null, existingUser);
   } else {
-    console.log("No User matches")
+    console.log("No User matches - creating user")
     let newUser = new User({
       fullName: fullName,
       email: email,
@@ -58,10 +55,12 @@ router.post("/create", async (req, res, done) => {
     newUser.save(function(err) {
       if (err) throw err;
       else console.log("new user saved successfully");
-    })
+    });
+    res.redirect("/login");
   }
 });
 
+// Local Authentication
 router.post("/login", 
   passport.authenticate("local", { failureRedirect: "/consumer" }),
   function(req, res) {

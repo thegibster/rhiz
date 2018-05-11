@@ -3,7 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = mongoose.model("users")
-const bcrypt =require('bcrypt');
+const bcrypt = require("../services/bcrypt");
 
 // Google Authenication.
 router.get("/google",
@@ -36,32 +36,29 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
 );
 
 // Local Authentication
-router.post("/login", (req, res, done) => { 
+router.post("/create", async (req, res, done) => { 
   const { fullName, email, password } = req.body;
   // password encryption
-  const saltRounds = 10;
-  let hashedPassword = '';
-  bcrypt.genSalt(saltRounds, function(err, salt) {
-    bcrypt.hash(password, salt, function(err, hash) {
-      hashedPassword = hash;
-    });
-  });
-  User.findOne({ fullName: fullName }).then(existingUser => {
-    if (existingUser) {
-      // already have a record of this user
-      done(null, existingUser);
-    } else {
+  const hashedPassword = await bcrypt.encrypt(password);
+  console.log("hashedPassword", hashedPassword);
+  User.findOne({ fullName: fullName }).then(req, res => {
+    console.log("Made it to here", req, res);
+    // console.log("existingUser", existingUser);
+    // if (existingUser) {
+    //   // already have a record of this user
+    //   console.log("email already taken");
+    //   done(null, existingUser);
+    // } else {
       // no user record, so create record
-      new User({
-        fullName: fullName,
-        email: email,
-        password: hashedPassword
-      })
-        .save()
-        .then(user => done(null, user));
-    }
+      // new User({
+      //   fullName: fullName,
+      //   email: email,
+      //   password: hashedPassword
+      // })
+      //   .save()
+      //   .then(user => done(null, user));
+    // }
   });
-  res.redirect("/");
 });
 
 router.post("/login", 

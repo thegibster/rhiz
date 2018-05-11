@@ -41,24 +41,25 @@ router.post("/create", async (req, res, done) => {
   // password encryption
   const hashedPassword = await bcrypt.encrypt(password);
   console.log("hashedPassword", hashedPassword);
-  User.findOne({ fullName: fullName }).then(req, res => {
-    console.log("Made it to here", req, res);
-    // console.log("existingUser", existingUser);
-    // if (existingUser) {
-    //   // already have a record of this user
-    //   console.log("email already taken");
-    //   done(null, existingUser);
-    // } else {
-      // no user record, so create record
-      // new User({
-      //   fullName: fullName,
-      //   email: email,
-      //   password: hashedPassword
-      // })
-      //   .save()
-      //   .then(user => done(null, user));
-    // }
-  });
+  const existingUser = await User.findOne({ fullName: fullName });
+  console.log("existingUser", existingUser);
+  console.log(req.body);
+  if (existingUser) {
+    // already have a record of this user
+    console.log("user already exists");
+    done(null, existingUser);
+  } else {
+    console.log("No User matches")
+    let newUser = new User({
+      fullName: fullName,
+      email: email,
+      password: hashedPassword
+    });
+    newUser.save(function(err) {
+      if (err) throw err;
+      else console.log("new user saved successfully");
+    })
+  }
 });
 
 router.post("/login", 

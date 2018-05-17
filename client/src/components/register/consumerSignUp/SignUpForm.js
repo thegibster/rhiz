@@ -11,7 +11,7 @@ class SignUpForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
-    this.handleNavigation = this.handleNavigation.bind(this);
+    // this.handleNavigation = this.handleNavigation.bind(this);
   }
   state = {
     loginInfo: null
@@ -32,9 +32,9 @@ class SignUpForm extends Component {
     return signUpForm;
   }
   
-  handleNavigation = () => {
-    this.props.history.push("/login");
-  };
+  // handleNavigation = () => {
+  //   this.props.history.push("/login");
+  // };
 
   submit(values) {
     const { fullName, email, password } = values;
@@ -43,7 +43,7 @@ class SignUpForm extends Component {
       loginInfo: loginInfo
     });
     this.props.createLogin(loginInfo);
-    this.handleNavigation();
+    // this.handleNavigation();
   }
 
   render() {

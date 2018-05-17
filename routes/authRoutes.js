@@ -56,6 +56,8 @@ router.post("/create", async (req, res, done) => {
       if (err) throw err;
       else {
         console.log("new user saved successfully");
+        res.redirect("/login");
+        console.log("res", res);
       }
     });
   }

@@ -13,8 +13,8 @@ export const createLogin = (loginInfo) => async dispatch => {
 }
 
 export const loginUser = (loginInfo) => async dispatch => {
-  const res = await axios.post("/auth/login", loginInfo);
   console.log("loginUser", loginInfo);
+  const res = await axios.post("/auth/login", loginInfo);
   console.log("res", res);
   dispatch({ type: LOGIN_USER, payload: res.data });
 }

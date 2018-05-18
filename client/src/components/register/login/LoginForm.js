@@ -35,8 +35,8 @@ class LoginForm extends Component {
   }
 
   submit(values) {
-    const { fullName, email, password } = values;
-    const loginInfo = { fullName, email, password };
+    const { email, password } = values;
+    const loginInfo = { email, password };
     this.setState({
       loginInfo: loginInfo
     });

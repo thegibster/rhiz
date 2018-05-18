@@ -67,7 +67,8 @@ router.post("/create", async (req, res, done) => {
 router.post("/login", 
   passport.authenticate("local", { failureRedirect: "/consumer" }),
   function(req, res) {
-    res.redirect("/");
+    console.log("We hit the right spot!");
+    res.redirect("/profile");
   }
 );
 

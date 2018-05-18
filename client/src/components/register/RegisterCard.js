@@ -13,9 +13,9 @@ const RegisterCard = (props) => {
       </Card.Content>
       <Card.Content>
         <Card.Description>
-          <Button style={style.buttonStyle} fluid color="facebook" href="/auth/facebook">
+          {/* <Button style={style.buttonStyle} fluid color="facebook" href="/auth/facebook">
             <Icon name="facebook" /> {props.hint} With Facebook
-          </Button>
+          </Button> */}
           <Button style={style.buttonStyle} fluid color="google plus" href="/auth/google">
             <Icon name="google plus" /> {props.hint} With Google
           </Button>

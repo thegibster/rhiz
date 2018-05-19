@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
+import { withRouter } from 'react-router-dom';
 import { Button } from "semantic-ui-react";
 import * as actions from "../../../actions";
 import { connect } from "react-redux";
@@ -10,6 +11,7 @@ class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.renderIncorrectLogin = this.renderIncorrectLogin.bind(this);
   }
   state = {
     loginInfo: null
@@ -43,11 +45,20 @@ class LoginForm extends Component {
     this.props.loginUser(loginInfo);
   }
 
+  renderIncorrectLogin() {
+    if (this.props.auth && (this.props.auth.login === false)) {
+      this.props.history.push("/auth/login");
+      // console.log("this.props", this.props);
+    }
+  }
+
   render() {
+    // console.log("this.props", this.props);
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit(this.submit)}>
         <div>{this.renderForm()}</div>
+        {this.renderIncorrectLogin()}
         <Button.Group fluid>
           <Button positive type="submit" disabled={pristine || submitting}>
             Submit
@@ -75,4 +86,4 @@ LoginForm = reduxForm({
   form: "login" // a unique identifier for this form
 })(LoginForm);
 
-export default connect(mapStateToProps, actions)(LoginForm);
+export default withRouter(connect(mapStateToProps, actions)(LoginForm));

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { Button } from 'semantic-ui-react';
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 import * as actions from '../../../actions';
 import { connect } from 'react-redux';
 import SignUpFormFields from '../SignUpFormFields';
@@ -31,10 +32,6 @@ class SignUpForm extends Component {
     });
     return signUpForm;
   }
-  
-  // handleNavigation = () => {
-  //   this.props.history.push("/login");
-  // };
 
   submit(values) {
     const { fullName, email, password } = values;
@@ -42,8 +39,8 @@ class SignUpForm extends Component {
     this.setState({
       loginInfo: loginInfo
     });
-    this.props.createLogin(loginInfo);
-    // this.handleNavigation();
+    // this.props.createLogin(loginInfo);
+    axios.post("/auth/create", loginInfo);
   }
 
   render() {
@@ -71,7 +68,6 @@ class SignUpForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth,
     form: state.form
 });
 

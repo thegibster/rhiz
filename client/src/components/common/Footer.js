@@ -25,6 +25,9 @@ class Footer extends Component {
                       <Link to="/about">About</Link>
                     </List.Item>
                     <List.Item>
+                      <Link to="/team">Team</Link>
+                    </List.Item>
+                    <List.Item>
                       <Link to="/careers">Careers</Link>
                     </List.Item>
                     <List.Item>
@@ -56,7 +59,9 @@ class Footer extends Component {
                   </List>
                 </Grid.Column>
                 <Grid.Column width={3}>
-                  <Header inverted as="h4">Business Tools</Header>
+                  <Header inverted as="h4">
+                    Business Tools
+                  </Header>
                   <List link>
                     <List.Item>
                       <Link to="/pricing">Pricing</Link>

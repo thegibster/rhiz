@@ -10,6 +10,7 @@ import Pricing from './pricing/Pricing';
 import RegisterForm  from './register/RegisterForm';
 import ConsumerSignUp from './register/consumerSignUp/ConsumerSignUp';
 import Login from './register/login/Login';
+import Team from './team/Team';
 
 class Router extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class Router extends Component {
           <Route path="/register" component={RegisterForm} />
           <Route path="/consumer" component={ConsumerSignUp} />
           <Route path="/login" component={Login} />
+          <Route path="/team" component={Team} />
           <Footer />
         </div>
       </BrowserRouter>

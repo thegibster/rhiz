@@ -36,7 +36,7 @@ router.get("/facebook/callback", passport.authenticate("facebook", { failureRedi
 );
 
 router.post("/create", async (req, res, done) => { 
-  const { fullName, email, password } = req.body;
+  const { fullName, email, password, company, category } = req.body;
   // password encryption
   const hashedPassword = await bcrypt.encrypt(password);
   // search for existingUser
@@ -50,7 +50,9 @@ router.post("/create", async (req, res, done) => {
     let newUser = new User({
       fullName: fullName,
       email: email,
-      password: hashedPassword
+      password: hashedPassword,
+      company: company,
+      category: category
     });
     newUser.save(function(err) {
       if (err) throw err;

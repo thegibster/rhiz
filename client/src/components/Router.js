@@ -9,6 +9,7 @@ import Profile from './profile/Profile';
 import Pricing from './pricing/Pricing';
 import RegisterForm  from './register/RegisterForm';
 import ConsumerSignUp from './register/consumerSignUp/ConsumerSignUp';
+import BusinessSignUp from './register/businessSignUp/BusinessSignUp';
 import Login from './register/login/Login';
 import Team from './team/Team';
 
@@ -27,6 +28,7 @@ class Router extends Component {
           <Route path="/pricing" component={Pricing} />
           <Route path="/register" component={RegisterForm} />
           <Route path="/consumer" component={ConsumerSignUp} />
+          <Route path="/business" component={BusinessSignUp} />
           <Route path="/login" component={Login} />
           <Route path="/team" component={Team} />
           <Footer />

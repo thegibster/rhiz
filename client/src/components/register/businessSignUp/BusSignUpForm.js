@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { Button, Select } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";

@@ -5,7 +5,7 @@ import { Button } from "semantic-ui-react";
 import * as actions from "../../../actions";
 import { connect } from "react-redux";
 import SignUpFormFields from "../SignUpFormFields";
-import { renderInput } from "../../utils/formValidations";
+import { renderInput, email, required } from "../../utils/formValidations";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class LoginForm extends Component {
           component={renderInput}
           type={SignUpFormFields[1].type}
           placeholder={SignUpFormFields[1].placeholder}
+          validate={[email, required]}
         />
         <Field
           name={SignUpFormFields[2].name}
@@ -46,9 +47,13 @@ class LoginForm extends Component {
   }
 
   renderIncorrectLogin() {
+    console.log("this.state", this.state);
     if (this.props.auth && (this.props.auth.login === false)) {
-      this.props.history.push("/auth/login");
-      // console.log("this.props", this.props);
+      return (
+        <div style={{ color: 'red', paddingBottom: "5px" }}>
+          <p>Not a valid email/password.</p>
+        </div>
+      );
     }
   }
 
@@ -58,7 +63,7 @@ class LoginForm extends Component {
     return (
       <form onSubmit={handleSubmit(this.submit)}>
         <div>{this.renderForm()}</div>
-        {this.renderIncorrectLogin()}
+        <div>{this.renderIncorrectLogin()}</div>
         <Button.Group fluid>
           <Button positive type="submit" disabled={pristine || submitting}>
             Submit
@@ -68,7 +73,7 @@ class LoginForm extends Component {
             type="button"
             disabled={pristine || submitting}
             onClick={reset}
-          >
+            >
             Clear
           </Button>
         </Button.Group>

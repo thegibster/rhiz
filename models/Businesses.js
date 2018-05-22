@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const businessSchema = new Schema({
   googleId: { type: String, default: "" },
   linkedInId: { type: String, default: "" },
   displayName: { type: String, default: "" },
@@ -11,11 +11,10 @@ const userSchema = new Schema({
   email: { type: String, default: "" },
   password: { type: String, default: "" },
   company: { type: String, default: "" },
-  category: { type: String, default: "" },
   iconPhotoURL: { type: String, default: "" },
   bigPhotoURL: { type: String, default: "" },
   linkedInProfileURL: { type: String, default: "" },
   googleProfileURL: { type: String, default: "" }
 });
 
-mongoose.model('users', userSchema);
+mongoose.model("users", userSchema);

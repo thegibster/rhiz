@@ -18,7 +18,7 @@ class Pricing extends Component {
                   <Divider />
                   <p>Wrapify Earnings Eligible</p>
                   <Divider />
-                </div>} link="/consumer" />
+                </div>} link="/business" />
           </Grid.Column>
           <Grid.Column>
             <PriceCard title="Full-Time" header="$39.00/mo" description={<div className="price-card-descriptions">
@@ -34,7 +34,7 @@ class Pricing extends Component {
                   <Divider />
                   <p>Legalzoom Discount</p>
                   <Divider />
-                </div>} link="/consumer" />
+                </div>} link="/business" />
           </Grid.Column>
           <Grid.Column>
             <PriceCard title="Big-Time" header="$59.00/mo" description={<div className="price-card-descriptions">
@@ -56,7 +56,7 @@ class Pricing extends Component {
                   <Divider />
                   <p>Boosted Search Results</p>
                   <Divider />
-                </div>} link="/consumer" />
+                </div>} link="/business" />
           </Grid.Column>
         </Grid>
       </Container>;

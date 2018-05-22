@@ -33,18 +33,22 @@ class SignUpForm extends Component {
     return signUpForm;
   }
 
-  submit(values) {
+  submit = async (values) => {
     const { fullName, email, password } = values;
     const loginInfo = { fullName, email, password };
     this.setState({
       loginInfo: loginInfo
     });
-    // this.props.createLogin(loginInfo);
-    axios.post("/auth/create", loginInfo);
+    // POST REQUEST TO CREATE USER
+    const res = await axios.post("/auth/create", loginInfo);
+    console.log("res", res);
+    if (res.data === true) {
+      this.props.history.push("/login");
+    }
   }
 
   render() {
-    console.log("this.props", this.props);
+    // console.log("this.props", this.props);
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit(this.submit)}>

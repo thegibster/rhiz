@@ -57,7 +57,7 @@ router.post("/create", async (req, res, done) => {
       else {
         console.log("new user saved successfully");
         // res.redirect("/login");
-        res.redirect(301, "/auth/login");
+        res.send(true);
         // console.log("res", res);
       }
     });

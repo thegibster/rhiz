@@ -65,12 +65,16 @@ router.post("/create", async (req, res, done) => {
 
 // Local Authentication
 router.post("/login", 
-  passport.authenticate("local", { failureRedirect: "/consumer" }),
+  passport.authenticate("local", { failureRedirect: "/auth/invalid" }),
   function(req, res) {
     console.log("We hit the right spot!");
     res.redirect("/profile");
   }
 );
+
+router.get("/invalid", function(req, res) {
+  res.send({ login: false });
+});
 
 // Logout 
 router.get("/logout", (req, res) => {

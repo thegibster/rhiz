@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect  } from 'react-redux';
-import { Container } from 'semantic-ui-react';
+import { Container, Image, Grid, Header } from 'semantic-ui-react';
 import ParallaxImage from "../common/ParallaxImage";
 import landscape1 from "../../assets/images/landscape1.jpeg";
 import HorizontalCard from '../common/HorizontalCard';
 import featuredLandscaping from '../../constants/featuredLandscaping.js';
+import Slider from 'react-slick';
 
 class Profile extends Component {
   renderCards() {
@@ -26,27 +27,70 @@ class Profile extends Component {
     return cards;
   }
 
-  renderParallax() {
+  renderImage() {
     if (this.props.auth) {
       return (
-        <ParallaxImage 
-          src={this.props.auth.bigPhotoURL}
-          size='small'
-          height={{ height: "15px" }}
-          bgImage={landscape1} 
-          title={this.props.auth.displayName}
-          text="lorem ipsum Ea consequat sunt ut sunt esse veniam qui incididunt laborum exercitation. Incididunt ipsum sint do esse anim reprehenderit sit ipsum sint minim incididunt laborum commodo sint. Nulla elit occaecat est Lorem voluptate proident quis est elit nulla nisi exercitation. Aliqua nisi sunt reprehenderit nulla consequat ad voluptate mollit esse et in aliqua dolor." 
-          alt="parallaximg"
-        />
+        <Container>
+          <Image size="small" centered src={this.props.auth.bigPhotoURL} />
+        </Container>
+      );
+    }
+  }
+
+  renderName() {
+    if (this.props.auth) {
+      return (
+        <Header as='h3' textAlign='center'>
+          {this.props.auth.displayName}
+        </Header>
       )
     }
   }
 
   render() {
+    const settings = {
+      customPaging: function(i) {
+        return (
+          <a>
+            <Image size="big" src={landscape1} />
+          </a>
+        );
+      },
+      dots: true,
+      dotsClass: "slick-dots slick-thumb",
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
     console.log("this.props", this.props);
     return (
       <div>
-        {this.renderParallax()}
+        {/* {this.renderParallax()} */}
+        <ParallaxImage
+          bgImage={landscape1} 
+          height={{ height: "75px" }}
+          alt="parallaximg"
+        />
+        <Container style={{ paddingTop: '20px', paddingBottom: '60px'}}>
+          <Grid>
+            <Grid.Column width={4}>
+              {this.renderName()}
+              <Slider {...settings}>
+                <div>
+                  {this.renderImage()}
+                </div>
+                {/* <div>
+                  {this.renderImage()}
+                </div> */}
+              </Slider>
+            </Grid.Column>
+            <Grid.Column width={12}>
+              <div />
+            </Grid.Column>
+          </Grid>
+        </Container>
         <Container>
           {this.renderCards()}
         </Container>

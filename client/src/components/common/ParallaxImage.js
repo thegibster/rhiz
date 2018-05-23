@@ -7,7 +7,7 @@ const ParallaxImage = props => (
     <Parallax
       blur={{ min: -10, max: 10 }}
       bgImage={props.bgImage}
-      bgImageAlt="the dog"
+      bgImageAlt="profile pic"
       strength={200}
     >
       <Container>

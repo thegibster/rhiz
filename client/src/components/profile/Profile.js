@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect  } from 'react-redux';
-import { Container, Image, Grid, Header } from 'semantic-ui-react';
+import { Container, Image, Grid, Header, Button, Feed, Icon } from 'semantic-ui-react';
 import ParallaxImage from "../common/ParallaxImage";
 import landscape1 from "../../assets/images/landscape1.jpeg";
 import HorizontalCard from '../common/HorizontalCard';
 import featuredLandscaping from '../../constants/featuredLandscaping.js';
+import FakeReviews from './FakeReviews';
 import Slider from 'react-slick';
 
 class Profile extends Component {
@@ -31,7 +32,7 @@ class Profile extends Component {
     if (this.props.auth) {
       return (
         <Container>
-          <Image size="small" centered src={this.props.auth.bigPhotoURL} />
+          <Image size="medium" centered src={this.props.auth.bigPhotoURL} />
         </Container>
       );
     }
@@ -45,6 +46,32 @@ class Profile extends Component {
         </Header>
       )
     }
+  }
+
+  renderReviews() {
+    const reviews = FakeReviews.map(fakeReview => {
+      return <Feed>
+          <Feed.Event>
+            <Feed.Label image={fakeReview.src} />
+            <Feed.Content>
+              <Feed.Summary>
+                <a>Geoff Knoth</a>
+                <Feed.Date>{fakeReview.datePosted}</Feed.Date>
+              </Feed.Summary>
+              <Feed.Extra text>
+                {fakeReview.review}
+              </Feed.Extra>
+              <Feed.Meta>
+                <Feed.Like>
+                  <Icon name="currency" />
+                  {fakeReview.change} Change
+                </Feed.Like>
+              </Feed.Meta>
+            </Feed.Content>
+          </Feed.Event>
+        </Feed>;
+    });
+    return reviews;
   }
 
   render() {
@@ -87,12 +114,15 @@ class Profile extends Component {
               </Slider>
             </Grid.Column>
             <Grid.Column width={12}>
-              <div />
+              <Button positive>
+                Contact
+              </Button>
             </Grid.Column>
           </Grid>
         </Container>
         <Container>
-          {this.renderCards()}
+          <h3>Reviews</h3>
+          {this.renderReviews()}
         </Container>
       </div>
     );

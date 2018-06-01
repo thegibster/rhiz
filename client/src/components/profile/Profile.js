@@ -6,6 +6,7 @@ import landscape1 from "../../assets/images/landscape1.jpeg";
 import HorizontalCard from '../common/HorizontalCard';
 import featuredLandscaping from '../../constants/featuredLandscaping.js';
 import FakeReviews from './FakeReviews';
+import MapContainer from './MapContainer';
 import Slider from 'react-slick';
 
 class Profile extends Component {
@@ -108,6 +109,7 @@ class Profile extends Component {
                 <div>
                   {this.renderImage()}
                 </div>
+                {/* If you want to create a carousel of images */}
                 {/* <div>
                   {this.renderImage()}
                 </div> */}
@@ -117,6 +119,9 @@ class Profile extends Component {
               <Button positive>
                 Contact
               </Button>
+              <Container>
+                <MapContainer />
+              </Container>
             </Grid.Column>
           </Grid>
         </Container>

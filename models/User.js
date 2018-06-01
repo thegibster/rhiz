@@ -15,7 +15,21 @@ const userSchema = new Schema({
   iconPhotoURL: { type: String, default: "" },
   bigPhotoURL: { type: String, default: "" },
   linkedInProfileURL: { type: String, default: "" },
-  googleProfileURL: { type: String, default: "" }
+  googleProfileURL: { type: String, default: "" },
+  reviewsReceived: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "reviewsReceived",
+      default: []
+    }
+  ],
+  reviewsGiven: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "reviewsGiven",
+      default: []
+    }
+  ]
 });
 
 mongoose.model('users', userSchema);

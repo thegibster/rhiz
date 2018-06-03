@@ -119,11 +119,11 @@ class Profile extends Component {
               <Button positive>
                 Contact
               </Button>
-              <Container>
-                <MapContainer />
-              </Container>
             </Grid.Column>
           </Grid>
+        </Container>
+        <Container>
+          <MapContainer />
         </Container>
         <Container>
           <h3>Reviews</h3>

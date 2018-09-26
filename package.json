@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "business marketplace application",
   "main": "index.js",
+  "engines": {
+    "node": "10.8.0",
+    "npm": "6.2.0"
+  },
   "scripts": {
     "scripts": "test",
     "start": "node index.js",

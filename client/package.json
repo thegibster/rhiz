@@ -2,14 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/auth/*": {
-      "target": "http://localhost:4000"
-    },
-    "/api/*": {
-      "target": "http://localhost:4000"
-    }
-  },
+  
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^2.0.1",
@@ -18,7 +11,7 @@
     "react-parallax": "^1.6.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
+    "react-scripts": "^1.1.5",
     "react-slick": "^0.21.0",
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",

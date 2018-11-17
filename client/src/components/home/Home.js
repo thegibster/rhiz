@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from 'semantic-ui-react';
 import ParallaxImage from "../common/ParallaxImage";
-import landscape1 from "../../assets/images/landscape1.jpeg";
+import landscape1 from "../../assets/images/banner-background.jpg";
 import FeaturedCarousel from './FeaturedCarousel';
 import FeaturedCarousel2 from "./FeaturedCarousel2";
 import SearchBar from './SearchBar';
@@ -12,7 +12,7 @@ class Home extends Component {
     return <div>
         <ParallaxImage 
           bgImage={landscape1} 
-          height={{ height: "35px" }} 
+          height={{ height: "50px" }} 
           title="Rhiz Marketplace" 
           text="Let's get started! Simply choose your category, location, and urgency."
           alt="parallaximg" 

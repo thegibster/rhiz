@@ -30,6 +30,8 @@ const VerticalCard = props => (
           <Icon name="dollar" />
           <Icon name="dollar" />
           <Icon name="dollar" />
+          <Icon name="dollar sign" />
+          <Icon name="dollar sign" />
         </div>
       </div>
       <div className="ui two buttons">

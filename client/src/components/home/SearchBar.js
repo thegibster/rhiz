@@ -21,7 +21,7 @@ class SearchBar extends Component {
                 <div>Homes Served</div>
               </Grid.Column>
               <Grid.Column width={1}>
-                <Icon name="dollar" size="big" />
+                <Icon name="money bill alternate outline" size="big" />
               </Grid.Column>
               <Grid.Column width={3}>
                 <div>$1,870,010</div>

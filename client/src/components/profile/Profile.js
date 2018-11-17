@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect  } from 'react-redux';
 import { Container, Image, Grid, Header, Button, Feed, Icon } from 'semantic-ui-react';
 import ParallaxImage from "../common/ParallaxImage";
-import landscape1 from "../../assets/images/landscape1.jpeg";
+import landscape1 from "../../assets/images/banner-background.jpg";
 import HorizontalCard from '../common/HorizontalCard';
 import featuredLandscaping from '../../constants/featuredLandscaping.js';
 import FakeReviews from './FakeReviews';

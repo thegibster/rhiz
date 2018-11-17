@@ -1,3 +1,17 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.react-parallax {
+  color: white;
+}
+.sign.icon {
+  opacity: .2;
+}
 .coverImage {
     max-width: 100%;
     height: auto;

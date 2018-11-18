@@ -3,9 +3,13 @@ import { Input, Icon, Grid } from 'semantic-ui-react';
 
 class SearchBar extends Component {
   render() {
+    const { searchFor,updateSearchFor } = this.props;
     return <div>
         <div className="home-search-bar">
-          <Input placeholder="What are you looking for?" />
+          <Input placeholder="What are you looking for?"
+            value={searchFor}
+            onChange={(event) => updateSearchFor(event.target.value)}
+          />
           <Input icon="marker" placeholder="Location" />
           <Input action={{ icon: "search" }} placeholder="Job Urgency" />
         </div>

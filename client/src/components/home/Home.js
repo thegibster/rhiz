@@ -15,7 +15,9 @@ class Home extends Component {
   state = {
     featuredLandscaping: featuredLandscaping,
     featuredInteriorDesign: featuredInteriorDesign,
-    searchFor: ''
+    searchFor: '',
+    searchLocation:'',
+    jobUrgency:''
   }
 
   updateSearchFor = (value) => {
@@ -24,8 +26,21 @@ class Home extends Component {
     });
   }
 
+  updateSearchLocation = (value) => {
+    this.setState({
+      searchLocation: value
+    });
+  }
+
+  updateJobUrgency = (value) => {
+    this.setState({
+      jobUrgency: value
+    });
+  }
+
   render() {
     // Destructure the state values
+    // use spread to prevent mutations
     let { featuredLandscaping, featuredInteriorDesign, searchFor } = this.state;
     const match =  new RegExp(escapeRegExp(searchFor), 'i');
     searchFor ?

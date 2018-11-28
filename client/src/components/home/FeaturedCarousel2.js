@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import { Container } from "semantic-ui-react";
 import VerticalCard from "../common/VerticalCard";
-import featuredInteriorDesign from "../../constants/featuredInteriorDesign";
+// import featuredInteriorDesign from "../../constants/featuredInteriorDesign";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -28,6 +28,7 @@ function SamplePrevArrow(props) {
 
 class FeaturedCarousel2 extends React.Component {
   renderVerticalCards() {
+    const featuredInteriorDesign = this.props.featuredInteriorDesign;
     const verticalCards = featuredInteriorDesign.map(featuredInteriorDesign => {
       return (
         <div key={featuredInteriorDesign.name}>

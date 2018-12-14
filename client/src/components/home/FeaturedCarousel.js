@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import { Container } from "semantic-ui-react";
 import VerticalCard from '../common/VerticalCard';
-import featuredLandscaping from '../../constants/featuredLandscaping';
+// import featuredLandscaping from '../../constants/featuredLandscaping';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -30,10 +30,11 @@ function SamplePrevArrow(props) {
 class FeaturedCarousel extends React.Component {
 
   renderVerticalCards() {
+    const featuredLandscaping = this.props.featuredLandscaping;
     const verticalCards = featuredLandscaping.map(featuredLandscaping => {
       return (
         <div key={featuredLandscaping.name}>
-          <VerticalCard 
+          <VerticalCard
             name={featuredLandscaping.name}
             bio={featuredLandscaping.bio}
             src={featuredLandscaping.src}

@@ -16,9 +16,9 @@ router.get("/google/callback", [passport.authenticate("google"), (req, res) => {
 }]);
 
 // Linkedin Authentication.
-router.get("/linkedin", 
+router.get("/linkedin",
   passport.authenticate("linkedin", {
-    scope: [ 'r_basicprofile', 'r_emailaddress' ]
+    scope: ['r_basicprofile', 'r_emailaddress']
   })
 );
 router.get("/linkedin/callback", [passport.authenticate("linkedin"), (req, res) => {
@@ -28,19 +28,28 @@ router.get("/linkedin/callback", [passport.authenticate("linkedin"), (req, res) 
 // Facebook Authenication.
 router.get("/facebook", passport.authenticate("facebook"));
 
-router.get("/facebook/callback", passport.authenticate("facebook", { failureRedirect: "/consumer" }),
-  function(req, res) {
+router.get("/facebook/callback", passport.authenticate("facebook", {
+    failureRedirect: "/consumer"
+  }),
+  function (req, res) {
     // Successful authentication, redirect home.
     res.redirect("/");
   }
 );
-
-router.post("/create", async (req, res, done) => { 
-  const { fullName, email, password, company, category } = req.body;
+router.post("/create", async (req, res, done) => {
+  const {
+    fullName,
+    email,
+    password,
+    company,
+    category
+  } = req.body;
   // password encryption
   const hashedPassword = await bcrypt.encrypt(password);
   // search for existingUser
-  const existingUser = await User.findOne({ fullName: fullName });
+  const existingUser = await User.findOne({
+    fullName: fullName
+  });
   if (existingUser) {
     // already have a record of this user
     console.log("user already exists");
@@ -54,7 +63,7 @@ router.post("/create", async (req, res, done) => {
       company: company,
       category: category
     });
-    newUser.save(function(err) {
+    newUser.save(function (err) {
       if (err) throw err;
       else {
         console.log("new user saved successfully");
@@ -67,16 +76,20 @@ router.post("/create", async (req, res, done) => {
 });
 
 // Local Authentication
-router.post("/login", 
-  passport.authenticate("local", { failureRedirect: "/auth/invalid" }),
-  function(req, res) {
+router.post("/login",
+  passport.authenticate("local", {
+    failureRedirect: "/auth/invalid"
+  }),
+  function (req, res) {
     console.log("We hit the right spot!");
     res.redirect("/profile");
   }
 );
 
-router.get("/invalid", function(req, res) {
-  res.send({ login: false });
+router.get("/invalid", function (req, res) {
+  res.send({
+    login: false
+  });
 });
 
 // Logout 

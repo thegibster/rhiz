@@ -46,25 +46,30 @@ class Home extends Component {
     // should do the multi filtering here
     // so there can be a few lines for a filter that repeat and apply the filter
     // const createFilter = (filterParm) =>
-    searchForName ?
-    // featuredLandscaping = featuredLandscaping.filter((fls) => match.test(fls.name))
-    featuredLandscaping = featuredLandscaping.filter(
-      (landscapeObject) => {
-          return landscapeObject.name.toLowerCase().indexOf(this.state.searchForName.toLowerCase()) !== -1;
-         }
-        )
-      :
-      featuredLandscaping;
+    if(searchForName) {
+      featuredLandscaping = featuredLandscaping.filter(
+      (landscapeItem) => landscapeItem.name.toLowerCase().indexOf(this.state.searchForName.toLowerCase()) !== -1
+        );
+      featuredInteriorDesign = featuredInteriorDesign.filter(
+      (interiorDesignItem) => interiorDesignItem.name.toLowerCase().indexOf(this.state.searchForName.toLowerCase()) !== -1
+        );
+    }
 
-    searchForLocation ?
 
-    featuredLandscaping = featuredLandscaping.filter(
-      (landscapeObject) => {
-          return landscapeObject.location.toLowerCase().indexOf(this.state.searchForLocation.toLowerCase()) !== -1;
-         }
-        )
-      :
-      featuredLandscaping;
+    if(searchForLocation) {
+      featuredLandscaping = featuredLandscaping.filter(
+        (landscapeItem) => {
+            return landscapeItem.location.toLowerCase().indexOf(this.state.searchForLocation.toLowerCase()) !== -1
+           }
+          );
+      featuredInteriorDesign = featuredInteriorDesign.filter(
+        (interiorDesignItem) => {
+            return interiorDesignItem.location.toLowerCase().indexOf(this.state.searchForLocation.toLowerCase()) !== -1
+           }
+          );
+    }
+
+
 
 
     return <div>

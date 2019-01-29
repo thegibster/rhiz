@@ -1,9 +1,9 @@
-const express = require('express');
-const passport = require("passport");
-const router = express.Router();
-const mongoose = require('mongoose');
-const User = mongoose.model("users")
-const bcrypt = require("../services/bcrypt");
+const express = require('express'),
+ passport = require("passport"),
+ router = express.Router(),
+ mongoose = require('mongoose'),
+ User = mongoose.model("users"),
+ bcrypt = require("../services/bcrypt");
 
 // Google Authenication.
 router.get("/google",
@@ -36,9 +36,11 @@ router.get("/facebook/callback", passport.authenticate("facebook", {
     res.redirect("/");
   }
 );
+
+
 router.post("/create", async (req, res, done) => {
   const {
-    fullName,
+    username,
     email,
     password,
     company,
@@ -58,7 +60,8 @@ router.post("/create", async (req, res, done) => {
     console.log("No User matches - creating user")
     let newUser = new User({
       fullName: fullName,
-      email: email,
+      username: username,
+      email: email, 
       password: hashedPassword,
       company: company,
       category: category

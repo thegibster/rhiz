@@ -10,17 +10,20 @@ import { renderInput } from "../../utils/formValidations";
 class BusSignUpForm extends Component {
   constructor(props) {
     super(props);
-    this.submit = this.submit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      company: '',
+      category: '',
+      email: '',
+      password: ''
+    };
   }
-  state = {
-    loginInfo: null
-  };
 
   renderForm() {
-    const signUpForm = BusFormFields.map(SignUp => {
+    const signUpForm = BusFormFields.map((SignUp, i) => {
       return (
         <Field
-          key={SignUp.name}
+          key={i}
           name={SignUp.name}
           component={renderInput}
           type={SignUp.type}
@@ -31,16 +34,24 @@ class BusSignUpForm extends Component {
     return signUpForm;
   }
 
-  submit = async values => {
+  handleSubmit = async (event, values) => {
+    event.preventDefault();
+
     console.log("values", values);
     const { company, category, email, password } = values;
     const loginInfo = { company, category, email, password };
     this.setState({
       loginInfo: loginInfo
     });
+    
     // POST REQUEST TO CREATE USER
-    const res = await axios.post("/auth/create", loginInfo);
-    console.log("res", res);
+     await axios.post("/business/create", loginInfo)
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>{
+      console.log(err)
+    });
     // if (res.data === true) {
     //   this.props.history.push("/login");
     // }
@@ -48,9 +59,9 @@ class BusSignUpForm extends Component {
 
   render() {
     // console.log("this.props", this.props);
-    const { handleSubmit, pristine, reset, submitting } = this.props;
+    const { pristine, reset, submitting } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.submit)}>
+      <form onSubmit={this.handleSubmit}>
         <div>{this.renderForm()}</div>
         <Button.Group fluid>
           <Button positive type="submit" disabled={pristine || submitting}>
